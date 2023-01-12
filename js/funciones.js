@@ -47,32 +47,44 @@ function seleccionarMascotaRival() {
 }
 
 function ataqueFuego() {
-    ataqueJugador = "Que ardiente!"
-    alert(ataqueJugador)
+    ataqueJugador = "Fuego!"
+    // alert(ataqueJugador)
     ataqueEnemigoAleatorio()
 }
 
 function ataqueAgua() {
-    ataqueJugador = "Que presión!"
-    alert(ataqueJugador)
+    ataqueJugador = "Agua!"
+    // alert(ataqueJugador)
     ataqueEnemigoAleatorio()
 }
 
 function ataqueTierra() {
-    ataqueJugador = "Que poderoso!"
-    alert(ataqueJugador)
-    ataqueEnemigoAleatorio()
+    ataqueJugador = "Tierra!"
+    // alert(ataqueJugador)
+    ataqueEnemigoAleatorio() 
 }
 
 function ataqueEnemigoAleatorio() {
     let numeroAleatorio = Math.floor(Math.random() * (max - min + 1) + min)
     if (numeroAleatorio === 1) {
-        alert("Que ardiente!")
+        ataqueEnemigo = "Fuego!"
+        // alert("Que ardiente!")
     } else if (numeroAleatorio === 2) {
-        alert("Que presión!")
+        // alert("Que presión!")
+        ataqueEnemigo = "Agua!"
     } else {
-        alert("Que poderoso!")
+        // alert("Que poderoso!")
+        ataqueEnemigo = "Tierra!"
     }
+
+    crearMensaje()
+}
+
+function crearMensaje() {
+    let mensajes = document.getElementById("mensajes")
+    let parrafo = document.createElement("p")
+    parrafo.innerHTML = "Tu mascota atacó con " + ataqueJugador + " el rival atacó con " + ataqueEnemigo
+    mensajes.appendChild(parrafo)
 }
 
 window.addEventListener("load", iniciarJuego)
