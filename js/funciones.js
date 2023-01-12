@@ -3,6 +3,8 @@ const max = 3
 let ataqueJugador
 let ataqueEnemigo
 let resultado
+let vidasMascota = 3
+let vidasEnemigo = 3
 
 function iniciarJuego() {
     let botonMascota = document.getElementById("boton-mascota")
@@ -37,6 +39,8 @@ function seleccionarMascota() {
 function seleccionarMascotaRival() {
     let numeroAleatorio = Math.floor(Math.random() * (max - min + 1) + min)
     let spanMascotaRival = document.getElementById("span-mascota-rival")
+    let spanVidas = document.getElementById("vidas-mascota")
+    let spanVidasRival = document.getElementById('vidas-mascotas-rival')
 
     if (numeroAleatorio === 1) {
         spanMascotaRival.innerHTML = "Hipodoge"
@@ -45,6 +49,10 @@ function seleccionarMascotaRival() {
     } else {
         spanMascotaRival.innerHTML = "Ratigueya"
     }
+
+    spanVidas.innerHTML = vidasMascota
+    spanVidasRival.innerHTML = vidasEnemigo
+
 }
 
 function ataqueFuego() {
@@ -82,16 +90,25 @@ function ataqueEnemigoAleatorio() {
 }
 
 function combate() {
+    let spanVidas = document.getElementById("vidas-mascota")
+    let spanVidasRival = document.getElementById('vidas-mascotas-rival')
+    
     if (ataqueJugador == ataqueEnemigo) {
         // alert("Vaya... Ha sido un empate!")
         resultado = "Vaya... Ha sido un empate!"
     } else if ((ataqueJugador == "Fuego!" && ataqueEnemigo == "Tierra!") || (ataqueJugador == "Agua!" && ataqueEnemigo == "Fuego!") || (ataqueJugador == "Tierra!" && ataqueEnemigo == "Agua!") ) {
         // victorias = victorias + 1
         // alert("Que buena suerte! Haz ganado!")
+        vidasEnemigo--
+        spanVidas.innerHTML = vidasMascota
+        spanVidasRival.innerHTML = vidasEnemigo
         resultado = "Que buena suerte! Haz ganado!"
     } else {
         // derrotas = derrotas + 1
         // alert("Será para la próxima... Haz perdido")
+        vidasMascota--
+        spanVidas.innerHTML = vidasMascota
+        spanVidasRival.innerHTML = vidasEnemigo
         resultado = "Será para la próxima... Haz perdido"
     }
 
