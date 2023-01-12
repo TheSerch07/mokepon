@@ -1,9 +1,17 @@
 const min = 1
 const max = 3
+let ataqueJugador
+let ataqueEnemigo
 
 function iniciarJuego() {
     let botonMascota = document.getElementById("boton-mascota")
     botonMascota.addEventListener("click", seleccionarMascota)
+    let botonFuego = document.getElementById("ataque-fuego")
+    botonFuego.addEventListener("click", ataqueFuego)
+    let botonAgua = document.getElementById("ataque-agua")
+    botonAgua.addEventListener("click", ataqueAgua)
+    let botonTierra = document.getElementById("ataque-tierra")
+    botonTierra.addEventListener("click", ataqueTierra)
 }
 
 function seleccionarMascota() {
@@ -35,6 +43,35 @@ function seleccionarMascotaRival() {
         spanMascotaRival.innerHTML = "Capipepo"
     } else {
         spanMascotaRival.innerHTML = "Ratigueya"
+    }
+}
+
+function ataqueFuego() {
+    ataqueJugador = "Que ardiente!"
+    alert(ataqueJugador)
+    ataqueEnemigoAleatorio()
+}
+
+function ataqueAgua() {
+    ataqueJugador = "Que presión!"
+    alert(ataqueJugador)
+    ataqueEnemigoAleatorio()
+}
+
+function ataqueTierra() {
+    ataqueJugador = "Que poderoso!"
+    alert(ataqueJugador)
+    ataqueEnemigoAleatorio()
+}
+
+function ataqueEnemigoAleatorio() {
+    let numeroAleatorio = Math.floor(Math.random() * (max - min + 1) + min)
+    if (numeroAleatorio === 1) {
+        alert("Que ardiente!")
+    } else if (numeroAleatorio === 2) {
+        alert("Que presión!")
+    } else {
+        alert("Que poderoso!")
     }
 }
 
