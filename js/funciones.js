@@ -2,6 +2,7 @@ const min = 1
 const max = 3
 let ataqueJugador
 let ataqueEnemigo
+let resultado
 
 function iniciarJuego() {
     let botonMascota = document.getElementById("boton-mascota")
@@ -77,13 +78,30 @@ function ataqueEnemigoAleatorio() {
         ataqueEnemigo = "Tierra!"
     }
 
+    combate()
+}
+
+function combate() {
+    if (ataqueJugador == ataqueEnemigo) {
+        // alert("Vaya... Ha sido un empate!")
+        resultado = "Vaya... Ha sido un empate!"
+    } else if ((ataqueJugador == "Fuego!" && ataqueEnemigo == "Tierra!") || (ataqueJugador == "Agua!" && ataqueEnemigo == "Fuego!") || (ataqueJugador == "Tierra!" && ataqueEnemigo == "Agua!") ) {
+        // victorias = victorias + 1
+        // alert("Que buena suerte! Haz ganado!")
+        resultado = "Que buena suerte! Haz ganado!"
+    } else {
+        // derrotas = derrotas + 1
+        // alert("Será para la próxima... Haz perdido")
+        resultado = "Será para la próxima... Haz perdido"
+    }
+
     crearMensaje()
 }
 
 function crearMensaje() {
     let mensajes = document.getElementById("mensajes")
     let parrafo = document.createElement("p")
-    parrafo.innerHTML = "Tu mascota atacó con " + ataqueJugador + " el rival atacó con " + ataqueEnemigo
+    parrafo.innerHTML = "Tu mascota atacó con " + ataqueJugador + " el rival atacó con " + ataqueEnemigo + " " + resultado
     mensajes.appendChild(parrafo)
 }
 
