@@ -17,6 +17,9 @@ function iniciarJuego() {
     botonTierra.addEventListener("click", ataqueTierra)
     let botonReinicio = document.getElementById("reiniciar")
     botonReinicio.addEventListener("click", reinicioVideojuego)
+    let seccionAtaque = document.getElementById("seleccion-ataque")
+    seccionAtaque.style.display = "none"
+    botonReinicio.style.display = "none"
 }
 
 function seleccionarMascota() {
@@ -43,7 +46,9 @@ function seleccionarMascotaRival() {
     let spanMascotaRival = document.getElementById("span-mascota-rival")
     let spanVidas = document.getElementById("vidas-mascota")
     let spanVidasRival = document.getElementById('vidas-mascotas-rival')
-
+    let seccionAtaque = document.getElementById("seleccion-ataque")
+    let seccionMascotas = document.getElementById("seleccion-mascota")
+    
     if (numeroAleatorio === 1) {
         spanMascotaRival.innerHTML = "Hipodoge"
     } else if (numeroAleatorio === 2) {
@@ -51,9 +56,12 @@ function seleccionarMascotaRival() {
     } else {
         spanMascotaRival.innerHTML = "Ratigueya"
     }
-
+    
     spanVidas.innerHTML = vidasMascota
     spanVidasRival.innerHTML = vidasEnemigo
+    
+    seccionAtaque.style.display = "block"
+    seccionMascotas.style.display = "none"
 
 }
 
@@ -136,15 +144,17 @@ function crearMensaje() {
 function crearMensajeFinal(mensaje) {
     let mensajes = document.getElementById("mensajes")
     let parrafo = document.createElement("p")
+    let botonFuego = document.getElementById("ataque-fuego")
+    let botonAgua = document.getElementById("ataque-agua")
+    let botonTierra = document.getElementById("ataque-tierra")
+    let botonReinicio = document.getElementById("reiniciar")
     parrafo.innerHTML = mensaje
     mensajes.appendChild(parrafo)
 
-    let botonFuego = document.getElementById("ataque-fuego")
     botonFuego.disabled = true
-    let botonAgua = document.getElementById("ataque-agua")
     botonAgua.disabled = true
-    let botonTierra = document.getElementById("ataque-tierra")
     botonTierra.disabled = true
+    botonReinicio.style.display = "block"
 }
 
 function reinicioVideojuego() {
