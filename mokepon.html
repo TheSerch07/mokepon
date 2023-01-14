@@ -7,19 +7,44 @@
         <script src="./js/funciones.js"></script>
     </head>
     <body>
-        <h1>Bienvenido a Mokepon! 🌎</h1>
-
+        
         <section id="seleccion-mascota">
-            <h2>Elige tu mascota!</h2>
+            <h1>Bienvenido a Mokepon! 🌎</h1>
 
-            <label for="hipodoge">Hipodoge</label>
-            <input type="radio" name="mascota" id="hipodoge"/>
-            <label for="capipepo">Capipepo</label>
-            <input type="radio" name="mascota" id="capipepo"/>
-            <label for="ratigueya">Ratigueya</label>
-            <input type="radio" name="mascota" id="ratigueya"/>
+            
+            <div id="div-mascotas">
+                <div id="contenedor-h2">
+                    <h2>Elige tu mascota!</h2>
 
-            <button id="boton-mascota">Seleccionar!</button>
+                </div>
+                <div id="contenedor-cartas">
+                    <div class="card-mascotas">
+                        <label class="label-mascotas" for="hipodoge">
+                            <p>Hipodoge</p>
+                            <img src="./assets/mokepons_mokepon_hipodoge_attack.png" alt="">
+                        </label>
+                        <input type="radio" name="mascota" id="hipodoge"/>
+                    </div>
+                    <div class="card-mascotas">
+                        <label class="label-mascotas" for="capipepo">
+                            <p>Capipepo</p>
+                            <img src="./assets/mokepons_mokepon_capipepo_attack.png" alt="">
+                        </label>
+                        <input type="radio" name="mascota" id="capipepo"/>
+                    </div>
+                    <div class="card-mascotas">
+                        <label class="label-mascotas" for="ratigueya">
+                            <p>Ratigueya</p>
+                            <img src="./assets/mokepons_mokepon_ratigueya_attack.png" alt="">
+                        </label>
+                        <input type="radio" name="mascota" id="ratigueya"/>
+                    </div>
+                </div>
+                
+            </div>
+            <div id="div-boton-seleccion">
+                <button id="boton-mascota">Seleccionar!</button>
+            </div>
         </section>
         <section id="seleccion-ataque">
             <h2>Elige tu ataque!</h2>
