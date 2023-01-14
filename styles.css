@@ -61,7 +61,7 @@ input {
     margin: 1rem;
     padding: 10px;
     border-radius: 20px;
-    transition: .5s
+    transition: 1.5s
 }
 
 .card-mascotas :hover {
@@ -78,7 +78,29 @@ input {
     transition: .5s
 }
 
+#div-boton-seleccion :hover {
+    cursor: pointer;
+    background-color: #FEBE8C;
+    color: aliceblue;
+}
+
 .label-mascotas {
     display: flex;
     align-items: center;
+}
+
+#boton-mascota {
+    border: 5px aquamarine solid;
+    border-radius: 20px;
+    /* fon */
+    font-size: 20px;
+    font-family: 'Fredoka One', cursive;
+    background-color: beige;
+    width: 200px;
+    height: 50px;
+    transition: .5s
+}
+
+#boton-mascota :hover {
+    background-color: #FEBE8C;
 }
