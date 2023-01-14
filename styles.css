@@ -9,14 +9,14 @@ h1 {
     color: lightcoral;
     font-size: 50px;
     -webkit-text-stroke: 1px black;
-    transition: .5s
+    transition: 1.5s
 }
 
 h2 {
     color: aquamarine;
     font-size: 30px;
     -webkit-text-stroke: 1px black;
-    transition: .5s
+    transition: 1.5s
 }
 
 input {
@@ -75,7 +75,7 @@ input {
 
 #div-boton-seleccion {
     padding-top: 20px;
-    transition: .5s
+    transition: 1.5s
 }
 
 #div-boton-seleccion :hover {
