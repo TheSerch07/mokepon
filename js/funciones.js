@@ -36,6 +36,7 @@ function seleccionarMascota() {
         spanMascota.innerHTML = "Ratigueya"
     } else {
         alert("Selecciona una mascota!")
+        return
     }
 
     seleccionarMascotaRival()
