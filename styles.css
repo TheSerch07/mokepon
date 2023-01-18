@@ -126,20 +126,3 @@ input:checked + label {
 #boton-mascota :hover {
     background-color: #FEBE8C;
 }
-
-/* #contenedor-cartas{
-    width: 250px;;
-    height:100px;
-    background:#11468f;
-    padding:10px;
-    box-sizing:border-box;
-    border-radius:20px;
-    display:flex;
-    justify-content:center;
-    align-items: center;
-    color:#fff
-}
-
-#contenedor-cartas img{
-    width: 150px;
-} */
