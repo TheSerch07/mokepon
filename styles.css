@@ -187,3 +187,46 @@ input:checked + label {
     cursor: pointer;
     background-color: rgb(55, 131, 52);
 }
+
+#mensajes {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    justify-content: center;
+    border-radius: 20px;
+    flex-direction: column;
+    background-color: #FEBE8C;
+    border: 5px solid coral;
+}
+
+#contenedor-ataques {
+    margin-top: 30px;
+    border-radius: 20px;
+    display: flex;
+    width: 250px;
+    justify-content: space-around;
+    background-color: #FEBE8C;
+    border: 5px solid coral;
+}
+
+#reiniciar {
+    border: 5px #7fffd400 solid;
+    border-radius: 20px;
+    /* fon */
+    color: aliceblue;
+    font-size: 15px;
+    font-family: 'Fredoka One', cursive;
+    background-color: #FEBE8C;
+    width: 200px;
+    height: 50px;
+    transition: .5s;
+    margin-bottom: 10px;
+    -webkit-text-stroke: 0.5px black;
+}
+
+#reiniciar:hover {
+    background-color: beige;
+    color: black;
+    cursor: pointer;
+}

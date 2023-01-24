@@ -136,21 +136,26 @@ function revisarVidas() {
 }
 
 function crearMensaje() {
-    let mensajes = document.getElementById("mensajes")
+    let mensajes = document.getElementById("resultado")
+    let ataqueMascota = document.getElementById("ataque-mascota")
+    let ataqueMascotaRival = document.getElementById("ataque-mascota-rival")
     let parrafo = document.createElement("p")
-    parrafo.innerHTML = "Tu mascota atacó con " + ataqueJugador + " el rival atacó con " + ataqueEnemigo + " " + resultado
-    mensajes.appendChild(parrafo)
+    let parrafoDos = document.createElement("p")
+    parrafo.innerHTML = ataqueJugador
+    ataqueMascota.appendChild(parrafo)
+    // parrafo.innerHTML = "Tu mascota atacó con " + ataqueJugador + " el rival atacó con " + ataqueEnemigo + " " + resultado
+    parrafoDos.innerHTML = ataqueEnemigo
+    ataqueMascotaRival.appendChild(parrafoDos)
+    mensajes.innerHTML = resultado
 }
 
 function crearMensajeFinal(mensaje) {
-    let mensajes = document.getElementById("mensajes")
-    let parrafo = document.createElement("p")
+    let mensajes = document.getElementById("resultado")
     let botonFuego = document.getElementById("ataque-fuego")
     let botonAgua = document.getElementById("ataque-agua")
     let botonTierra = document.getElementById("ataque-tierra")
     let botonReinicio = document.getElementById("reiniciar")
-    parrafo.innerHTML = mensaje
-    mensajes.appendChild(parrafo)
+    mensajes.innerHTML = mensaje
 
     botonFuego.disabled = true
     botonAgua.disabled = true
