@@ -204,7 +204,7 @@ input:checked + label {
     margin-top: 30px;
     border-radius: 20px;
     display: flex;
-    width: 250px;
+    width: 450px;
     justify-content: space-around;
     background-color: #FEBE8C;
     border: 5px solid coral;
@@ -229,4 +229,20 @@ input:checked + label {
     background-color: beige;
     color: black;
     cursor: pointer;
+}
+
+.contenedor-vidas {
+    text-align: center;
+}
+
+#ataque-mascota-rival {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#ataque-mascota {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
