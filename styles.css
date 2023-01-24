@@ -86,7 +86,7 @@ input:checked + label {
     transition: 1.5s
 }
 
-.card-mascotas :hover {
+.label-mascotas:hover {
     cursor: pointer;
     color: aliceblue;
 }
@@ -100,11 +100,6 @@ input:checked + label {
     transition: 1.5s
 }
 
-#div-boton-seleccion :hover {
-    cursor: pointer;
-    background-color: #FEBE8C;
-    color: aliceblue;
-}
 
 .label-mascotas {
     display: flex;
@@ -123,6 +118,72 @@ input:checked + label {
     transition: .5s
 }
 
-#boton-mascota :hover {
+#boton-mascota:hover {
     background-color: #FEBE8C;
+    cursor: pointer;
+}
+
+#div-vidas {
+    display: flex;
+}
+
+#seleccion-ataque {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#ataque-fuego {
+    border: 5px rgb(216, 190, 190) solid;
+    border-radius: 20px;
+    /* fon */
+    color: aliceblue;
+    font-size: 20px;
+    font-family: 'Fredoka One', cursive;
+    background-color: rgb(255, 104, 104);
+    width: 200px;
+    height: 50px;
+    transition: .5s
+}
+
+#ataque-agua {
+    border: 5px rgb(190, 216, 216) solid;
+    border-radius: 20px;
+    /* fon */
+    color: aliceblue;
+    font-size: 20px;
+    font-family: 'Fredoka One', cursive;
+    background-color: rgb(104, 237, 255);
+    width: 200px;
+    height: 50px;
+    transition: .5s
+}
+
+
+#ataque-tierra {
+    border: 5px rgb(190, 216, 124) solid;
+    border-radius: 20px;
+    /* fon */
+    color: aliceblue;
+    font-size: 20px;
+    font-family: 'Fredoka One', cursive;
+    background-color: rgb(104, 255, 124);
+    width: 200px;
+    height: 50px;
+    transition: .5s
+}
+
+#ataque-fuego:hover {
+    cursor: pointer;
+    background-color: rgb(131, 52, 52);
+}
+
+#ataque-agua:hover {
+    cursor: pointer;
+    background-color: rgb(52, 115, 131);
+}
+
+#ataque-tierra:hover {
+    cursor: pointer;
+    background-color: rgb(55, 131, 52);
 }

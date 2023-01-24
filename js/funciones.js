@@ -61,7 +61,7 @@ function seleccionarMascotaRival() {
     spanVidas.innerHTML = vidasMascota
     spanVidasRival.innerHTML = vidasEnemigo
     
-    seccionAtaque.style.display = "block"
+    seccionAtaque.style.display = "flex"
     seccionMascotas.style.display = "none"
 
 }
