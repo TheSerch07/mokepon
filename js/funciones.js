@@ -18,11 +18,53 @@ const ataqueMascotaRival = document.getElementById("ataque-mascota-rival")
 
 const min = 1
 const max = 3
+let mokepones = []
 let ataqueJugador
 let ataqueEnemigo
 let resultado
 let vidasMascota = 3
 let vidasEnemigo = 3
+
+class Mokepon {
+    constructor(nombre, imagen, vidas) {
+        this.nombre = nombre
+        this.imagen = imagen
+        this.vidas = vidas
+        this.ataques = [] 
+    }
+}
+
+let hipodoge = new Mokepon("Hipodoge", "./assets/mokepons_mokepon_hipodoge_attack.png", 5)
+let capipepo = new Mokepon("Capipepo", "./assets/mokepons_mokepon_capipepo_attack.png", 5)
+let ratigueya = new Mokepon("Ratigueya", "./assets/mokepons_mokepon_ratigueya_attack.png", 5)
+
+hipodoge.ataques.push(
+    {name: "💧", id: "ataque-agua"},
+    {name: "💧", id: "ataque-agua"},
+    {name: "💧", id: "ataque-agua"},
+    {name: "🔥", id: "ataque-fuego"},
+    {name: "🌱", id: "ataque-tierra"}
+)
+
+capipepo.ataques.push(
+    {name: "🌱", id: "ataque-tierra"},
+    {name: "🌱", id: "ataque-tierra"},
+    {name: "🌱", id: "ataque-tierra"},
+    {name: "🔥", id: "ataque-fuego"},
+    {name: "💧", id: "ataque-agua"}
+)
+
+ratigueya.ataques.push(
+    {name: "🔥", id: "ataque-fuego"},
+    {name: "🔥", id: "ataque-fuego"},
+    {name: "🔥", id: "ataque-fuego"},
+    {name: "🌱", id: "ataque-tierra"},
+    {name: "💧", id: "ataque-agua"}
+)
+
+// mokepones.push(hipodoge, capipepo, ratigueya)
+
+console.log(mokepones, "los mokepones")
 
 function iniciarJuego() {
     botonMascota.addEventListener("click", seleccionarMascota)
