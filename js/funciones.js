@@ -15,10 +15,12 @@ const seccionMascotas = document.getElementById("seleccion-mascota")
 const mensajes = document.getElementById("resultado")
 const ataqueMascota = document.getElementById("ataque-mascota")
 const ataqueMascotaRival = document.getElementById("ataque-mascota-rival")
+const contenedorCartas = document.getElementById("contenedor-cartas")
 
 const min = 1
 const max = 3
 let mokepones = []
+let mokeponesPorMostrar
 let ataqueJugador
 let ataqueEnemigo
 let resultado
@@ -62,11 +64,24 @@ ratigueya.ataques.push(
     {name: "💧", id: "ataque-agua"}
 )
 
-// mokepones.push(hipodoge, capipepo, ratigueya)
+mokepones.push(hipodoge, capipepo, ratigueya)
 
-console.log(mokepones, "los mokepones")
+// console.log(mokepones, "los mokepones")
 
 function iniciarJuego() {
+    console.log(mokepones, "Los mokepones")
+    mokepones.forEach((mokepon) => {
+        mokeponesPorMostrar = `
+        <div class="card-mascotas">
+            <input type="radio" name="mascota" id=${mokepon.nombre}/>
+            <label class="label-mascotas" for=${mokepon.nombre}>
+                <p>${mokepon.nombre}</p>
+                <img src=${mokepon.imagen} alt=${mokepon.nombre}>
+            </label>
+        </div>
+        `
+        contenedorCartas.innerHTML += mokeponesPorMostrar
+    })
     botonMascota.addEventListener("click", seleccionarMascota)
     botonFuego.addEventListener("click", ataqueFuego)
     botonAgua.addEventListener("click", ataqueAgua)
