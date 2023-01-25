@@ -82,6 +82,7 @@ function iniciarJuego() {
         `
         contenedorCartas.innerHTML += mokeponesPorMostrar
     })
+    
     botonMascota.addEventListener("click", seleccionarMascota)
     botonFuego.addEventListener("click", ataqueFuego)
     botonAgua.addEventListener("click", ataqueAgua)
