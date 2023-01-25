@@ -1,3 +1,21 @@
+let seccionAtaque = document.getElementById("seleccion-ataque")
+let botonReinicio = document.getElementById("reiniciar")
+let botonTierra = document.getElementById("ataque-tierra")
+let botonAgua = document.getElementById("ataque-agua")
+let botonFuego = document.getElementById("ataque-fuego")
+let botonMascota = document.getElementById("boton-mascota")
+let input1 = document.getElementById("hipodoge")
+let input2 = document.getElementById("capipepo")
+let input3 = document.getElementById("ratigueya")
+let spanMascota = document.getElementById("span-mascota")
+let spanMascotaRival = document.getElementById("span-mascota-rival")
+let spanVidas = document.getElementById("vidas-mascota")
+let spanVidasRival = document.getElementById('vidas-mascotas-rival')
+let seccionMascotas = document.getElementById("seleccion-mascota")
+let mensajes = document.getElementById("resultado")
+let ataqueMascota = document.getElementById("ataque-mascota")
+let ataqueMascotaRival = document.getElementById("ataque-mascota-rival")
+
 const min = 1
 const max = 3
 let ataqueJugador
@@ -7,26 +25,16 @@ let vidasMascota = 3
 let vidasEnemigo = 3
 
 function iniciarJuego() {
-    let botonMascota = document.getElementById("boton-mascota")
     botonMascota.addEventListener("click", seleccionarMascota)
-    let botonFuego = document.getElementById("ataque-fuego")
     botonFuego.addEventListener("click", ataqueFuego)
-    let botonAgua = document.getElementById("ataque-agua")
     botonAgua.addEventListener("click", ataqueAgua)
-    let botonTierra = document.getElementById("ataque-tierra")
     botonTierra.addEventListener("click", ataqueTierra)
-    let botonReinicio = document.getElementById("reiniciar")
     botonReinicio.addEventListener("click", reinicioVideojuego)
-    let seccionAtaque = document.getElementById("seleccion-ataque")
     seccionAtaque.style.display = "none"
     botonReinicio.style.display = "none"
 }
 
 function seleccionarMascota() {
-    let input1 = document.getElementById("hipodoge")
-    let input2 = document.getElementById("capipepo")
-    let input3 = document.getElementById("ratigueya")
-    let spanMascota = document.getElementById("span-mascota")
 
     if (input1.checked) {
         spanMascota.innerHTML = "Hipodoge"
@@ -44,11 +52,6 @@ function seleccionarMascota() {
 
 function seleccionarMascotaRival() {
     let numeroAleatorio = Math.floor(Math.random() * (max - min + 1) + min)
-    let spanMascotaRival = document.getElementById("span-mascota-rival")
-    let spanVidas = document.getElementById("vidas-mascota")
-    let spanVidasRival = document.getElementById('vidas-mascotas-rival')
-    let seccionAtaque = document.getElementById("seleccion-ataque")
-    let seccionMascotas = document.getElementById("seleccion-mascota")
     
     if (numeroAleatorio === 1) {
         spanMascotaRival.innerHTML = "Hipodoge"
@@ -60,7 +63,6 @@ function seleccionarMascotaRival() {
     
     spanVidas.innerHTML = vidasMascota
     spanVidasRival.innerHTML = vidasEnemigo
-    
     seccionAtaque.style.display = "flex"
     seccionMascotas.style.display = "none"
 
@@ -101,22 +103,16 @@ function ataqueEnemigoAleatorio() {
 }
 
 function combate() {
-    let spanVidas = document.getElementById("vidas-mascota")
-    let spanVidasRival = document.getElementById('vidas-mascotas-rival')
     
     if (ataqueJugador == ataqueEnemigo) {
         // alert("Vaya... Ha sido un empate!")
         resultado = "Vaya... Ha sido un empate!"
     } else if ((ataqueJugador == "Fuego!" && ataqueEnemigo == "Tierra!") || (ataqueJugador == "Agua!" && ataqueEnemigo == "Fuego!") || (ataqueJugador == "Tierra!" && ataqueEnemigo == "Agua!") ) {
-        // victorias = victorias + 1
-        // alert("Que buena suerte! Haz ganado!")
         vidasEnemigo--
         spanVidas.innerHTML = vidasMascota
         spanVidasRival.innerHTML = vidasEnemigo
         resultado = "Que buena suerte! Haz ganado!"
     } else {
-        // derrotas = derrotas + 1
-        // alert("Será para la próxima... Haz perdido")
         vidasMascota--
         spanVidas.innerHTML = vidasMascota
         spanVidasRival.innerHTML = vidasEnemigo
@@ -136,9 +132,6 @@ function revisarVidas() {
 }
 
 function crearMensaje() {
-    let mensajes = document.getElementById("resultado")
-    let ataqueMascota = document.getElementById("ataque-mascota")
-    let ataqueMascotaRival = document.getElementById("ataque-mascota-rival")
     let parrafo = document.createElement("p")
     let parrafoDos = document.createElement("p")
     parrafo.innerHTML = ataqueJugador
@@ -150,11 +143,6 @@ function crearMensaje() {
 }
 
 function crearMensajeFinal(mensaje) {
-    let mensajes = document.getElementById("resultado")
-    let botonFuego = document.getElementById("ataque-fuego")
-    let botonAgua = document.getElementById("ataque-agua")
-    let botonTierra = document.getElementById("ataque-tierra")
-    let botonReinicio = document.getElementById("reiniciar")
     mensajes.innerHTML = mensaje
 
     botonFuego.disabled = true
