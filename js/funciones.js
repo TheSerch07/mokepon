@@ -100,11 +100,11 @@ function iniciarJuego() {
 function seleccionarMascota() {
 
     if (input1.checked) {
-        spanMascota.innerHTML = "Hipodoge"
+        spanMascota.innerHTML = input1.id
     } else if (input2.checked) {
-        spanMascota.innerHTML = "Capipepo"
+        spanMascota.innerHTML = input2.id
     } else if (input3.checked) {
-        spanMascota.innerHTML = "Ratigueya"
+        spanMascota.innerHTML = input3.id
     } else {
         alert("Selecciona una mascota!")
         return
