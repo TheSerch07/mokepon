@@ -14,9 +14,10 @@ const ataqueMascota = document.getElementById("ataque-mascota")
 const ataqueMascotaRival = document.getElementById("ataque-mascota-rival")
 const contenedorCartas = document.getElementById("contenedor-cartas")
 
-const min = 1
-const max = 3
+const min = 0
+const max = 2
 
+let mascotaJugador 
 let input1 = document.getElementById("hipodoge")
 let input2 = document.getElementById("capipepo")
 let input3 = document.getElementById("ratigueya")
@@ -101,28 +102,44 @@ function seleccionarMascota() {
 
     if (input1.checked) {
         spanMascota.innerHTML = input1.id
+        mascotaJugador = input1.id
     } else if (input2.checked) {
         spanMascota.innerHTML = input2.id
+        mascotaJugador = input2.id
     } else if (input3.checked) {
         spanMascota.innerHTML = input3.id
+        mascotaJugador = input3.id
     } else {
         alert("Selecciona una mascota!")
         return
     }
 
+    extraerAtaque(mascotaJugador)
     seleccionarMascotaRival()
+}
+
+function extraerAtaque(mascotaJugador) {
+    let ataques 
+    for (let i = 0 ; i < mokepones.length ; i++) {
+        if (mascotaJugador == mokepones[i].nombre) {
+            ataques = mokepones[i].ataques
+        }
+    }
+    console.log(ataques, "ataquesssss")
 }
 
 function seleccionarMascotaRival() {
     let numeroAleatorio = Math.floor(Math.random() * (max - min + 1) + min)
     
-    if (numeroAleatorio === 1) {
-        spanMascotaRival.innerHTML = "Hipodoge"
-    } else if (numeroAleatorio === 2) {
-        spanMascotaRival.innerHTML = "Capipepo"
-    } else {
-        spanMascotaRival.innerHTML = "Ratigueya"
-    }
+    console.log(numeroAleatorio, "aleatorio")
+    // if (numeroAleatorio === 1) {
+    //     spanMascotaRival.innerHTML = "Hipodoge"
+    // } else if (numeroAleatorio === 2) {
+    //     spanMascotaRival.innerHTML = "Capipepo"
+    // } else {
+    //     spanMascotaRival.innerHTML = "Ratigueya"
+    // }
+    spanMascotaRival.innerHTML = mokepones[numeroAleatorio].nombre
     
     spanVidas.innerHTML = vidasMascota
     spanVidasRival.innerHTML = vidasEnemigo
