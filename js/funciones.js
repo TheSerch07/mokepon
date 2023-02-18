@@ -199,24 +199,6 @@ function seleccionarMascotaRival() {
     secuenciaAtaque()
 }
 
-// function ataqueFuego() {
-//     ataqueJugador = "Fuego!"
-//     // alert(ataqueJugador)
-//     ataqueEnemigoAleatorio()
-// }
-
-// function ataqueAgua() {
-//     ataqueJugador = "Agua!"
-//     // alert(ataqueJugador)
-//     ataqueEnemigoAleatorio()
-// }
-
-// function ataqueTierra() {
-//     ataqueJugador = "Tierra!"
-//     // alert(ataqueJugador)
-//     ataqueEnemigoAleatorio() 
-// }
-
 function ataqueEnemigoAleatorio() {
     let numeroAleatorio = Math.floor(Math.random() * (max - min + 1) + min)
     if (numeroAleatorio === 1) {
