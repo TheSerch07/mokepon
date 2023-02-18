@@ -203,12 +203,9 @@ function ataqueEnemigoAleatorio() {
     let numeroAleatorio = Math.floor(Math.random() * (max - min + 1) + min)
     if (numeroAleatorio === 1) {
         ataqueEnemigo = "Fuego!"
-        // alert("Que ardiente!")
     } else if (numeroAleatorio === 2) {
-        // alert("Que presión!")
         ataqueEnemigo = "Agua!"
     } else {
-        // alert("Que poderoso!")
         ataqueEnemigo = "Tierra!"
     }
 
