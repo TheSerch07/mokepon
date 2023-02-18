@@ -15,6 +15,7 @@ const contenedorAtaques = document.getElementById("contenedor-botones-ataque")
 const min = 0
 const max = 2
 
+let botones = []
 let botonTierra 
 let botonAgua 
 let botonFuego
@@ -24,7 +25,7 @@ let input2 = document.getElementById("capipepo")
 let input3 = document.getElementById("ratigueya")
 let mokepones = []
 let mokeponesPorMostrar
-let ataqueJugador
+let ataqueJugador = []
 let ataqueEnemigo
 let resultado
 let ataquesMokepon
@@ -131,7 +132,7 @@ function extraerAtaque(mascotaJugador) {
 function mostrarAtaques(ataques) {
     ataques.forEach((ataque) => {
         ataquesMokepon = `
-        <button id=${ataque.id} >
+        <button id=${ataque.id} class="boton-ataque" >
         ${ataque.name}
         </button>
         `
@@ -142,49 +143,63 @@ function mostrarAtaques(ataques) {
     botonAgua = document.getElementById("ataque-agua")
     botonFuego = document.getElementById("ataque-fuego")
 
-    botonFuego.addEventListener("click", ataqueFuego)
-    botonAgua.addEventListener("click", ataqueAgua)
-    botonTierra.addEventListener("click", ataqueTierra)
-    
+    // botonFuego.addEventListener("click", ataqueFuego)
+    // botonAgua.addEventListener("click", ataqueAgua)
+    // botonTierra.addEventListener("click", ataqueTierra)
+    botones = document.querySelectorAll(".boton-ataque")
+}
+
+function secuenciaAtaque() {
+    botones.forEach((boton) => {
+        boton.addEventListener("click", (e) => {
+            console.log(e, "El targetttt")
+            if (e.target.innerText == "🔥") {
+                ataqueJugador.push("Fuego!")
+                console.log(ataqueJugador)
+                boton.style.background = "#112f58"
+            } else if (e.target.innerText == "💧") {
+                ataqueJugador.push("Agua!")
+                console.log(ataqueJugador)
+                boton.style.background = "#112f58"
+            } else {
+                ataqueJugador.push("Tierra!")
+                console.log(ataqueJugador)
+                boton.style.background = "#112f58"
+            }
+        })
+    })
 }
 
 function seleccionarMascotaRival() {
     let numeroAleatorio = Math.floor(Math.random() * (max - min + 1) + min)
     
     console.log(numeroAleatorio, "aleatorio")
-    // if (numeroAleatorio === 1) {
-    //     spanMascotaRival.innerHTML = "Hipodoge"
-    // } else if (numeroAleatorio === 2) {
-    //     spanMascotaRival.innerHTML = "Capipepo"
-    // } else {
-    //     spanMascotaRival.innerHTML = "Ratigueya"
-    // }
     spanMascotaRival.innerHTML = mokepones[numeroAleatorio].nombre
     
     spanVidas.innerHTML = vidasMascota
     spanVidasRival.innerHTML = vidasEnemigo
     seccionAtaque.style.display = "flex"
     seccionMascotas.style.display = "none"
-
+    secuenciaAtaque()
 }
 
-function ataqueFuego() {
-    ataqueJugador = "Fuego!"
-    // alert(ataqueJugador)
-    ataqueEnemigoAleatorio()
-}
+// function ataqueFuego() {
+//     ataqueJugador = "Fuego!"
+//     // alert(ataqueJugador)
+//     ataqueEnemigoAleatorio()
+// }
 
-function ataqueAgua() {
-    ataqueJugador = "Agua!"
-    // alert(ataqueJugador)
-    ataqueEnemigoAleatorio()
-}
+// function ataqueAgua() {
+//     ataqueJugador = "Agua!"
+//     // alert(ataqueJugador)
+//     ataqueEnemigoAleatorio()
+// }
 
-function ataqueTierra() {
-    ataqueJugador = "Tierra!"
-    // alert(ataqueJugador)
-    ataqueEnemigoAleatorio() 
-}
+// function ataqueTierra() {
+//     ataqueJugador = "Tierra!"
+//     // alert(ataqueJugador)
+//     ataqueEnemigoAleatorio() 
+// }
 
 function ataqueEnemigoAleatorio() {
     let numeroAleatorio = Math.floor(Math.random() * (max - min + 1) + min)
