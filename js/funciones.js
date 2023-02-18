@@ -218,7 +218,6 @@ function ataqueEnemigoAleatorio() {
 function combate() {
     
     if (ataqueJugador == ataqueEnemigo) {
-        // alert("Vaya... Ha sido un empate!")
         resultado = "Vaya... Ha sido un empate!"
     } else if ((ataqueJugador == "Fuego!" && ataqueEnemigo == "Tierra!") || (ataqueJugador == "Agua!" && ataqueEnemigo == "Fuego!") || (ataqueJugador == "Tierra!" && ataqueEnemigo == "Agua!") ) {
         vidasEnemigo--
