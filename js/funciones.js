@@ -24,9 +24,10 @@ let input1 = document.getElementById("hipodoge")
 let input2 = document.getElementById("capipepo")
 let input3 = document.getElementById("ratigueya")
 let mokepones = []
+let ataqueMokeponesEnemigo
 let mokeponesPorMostrar
 let ataqueJugador = []
-let ataqueEnemigo
+let ataqueEnemigo = []
 let resultado
 let ataquesMokepon
 let vidasMascota = 3
@@ -166,15 +167,30 @@ function secuenciaAtaque() {
                 console.log(ataqueJugador)
                 boton.style.background = "#112f58"
             }
+
+            ataqueAleatorioEnemigo()
         })
     })
 }
 
+function ataqueAleatorioEnemigo() {
+    let ataqueAleatorio = Math.floor(Math.random() * (max - min + 1) + min)
+    if (ataqueAleatorio == 0 || ataqueAleatorio == 1) {
+        ataqueEnemigo.push('Fuego!');
+    } else if (ataqueAleatorio == 3 || ataqueAleatorio == 4) {
+        ataqueEnemigo.push('Agua!');
+    } else {
+        ataqueEnemigo.push('Tierra!');
+    }
+    console.log(ataqueEnemigo);
+    combate();
+}
+
 function seleccionarMascotaRival() {
     let numeroAleatorio = Math.floor(Math.random() * (max - min + 1) + min)
-    
-    console.log(numeroAleatorio, "aleatorio")
+
     spanMascotaRival.innerHTML = mokepones[numeroAleatorio].nombre
+    ataqueMokeponesEnemigo = mokepones[numeroAleatorio].ataques
     
     spanVidas.innerHTML = vidasMascota
     spanVidasRival.innerHTML = vidasEnemigo
