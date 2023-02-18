@@ -72,8 +72,6 @@ ratigueya.ataques.push(
 
 mokepones.push(hipodoge, capipepo, ratigueya)
 
-// console.log(mokepones, "los mokepones")
-
 function iniciarJuego() {
     console.log(mokepones, "Los mokepones")
     mokepones.forEach((mokepon) => {
@@ -126,7 +124,7 @@ function extraerAtaque(mascotaJugador) {
             ataques = mokepones[i].ataques
         }
     }
-    // console.log(ataques, "ataquesssss")
+
     mostrarAtaques(ataques)
 }
 
@@ -143,10 +141,6 @@ function mostrarAtaques(ataques) {
     botonTierra = document.getElementById("ataque-tierra")
     botonAgua = document.getElementById("ataque-agua")
     botonFuego = document.getElementById("ataque-fuego")
-
-    // botonFuego.addEventListener("click", ataqueFuego)
-    // botonAgua.addEventListener("click", ataqueAgua)
-    // botonTierra.addEventListener("click", ataqueTierra)
     botones = document.querySelectorAll(".boton-ataque")
 }
 
@@ -245,7 +239,6 @@ function crearMensaje() {
     let parrafoDos = document.createElement("p")
     parrafo.innerHTML = ataqueJugador
     ataqueMascota.appendChild(parrafo)
-    // parrafo.innerHTML = "Tu mascota atacó con " + ataqueJugador + " el rival atacó con " + ataqueEnemigo + " " + resultado
     parrafoDos.innerHTML = ataqueEnemigo
     ataqueMascotaRival.appendChild(parrafoDos)
     mensajes.innerHTML = resultado
