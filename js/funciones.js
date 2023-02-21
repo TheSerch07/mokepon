@@ -20,6 +20,8 @@ let botonTierra
 let botonAgua 
 let botonFuego
 let mascotaJugador 
+let indexJugador
+let indexEnemigo
 let input1 = document.getElementById("hipodoge")
 let input2 = document.getElementById("capipepo")
 let input3 = document.getElementById("ratigueya")
@@ -177,9 +179,14 @@ function ataqueAleatorioEnemigo() {
         ataqueEnemigo.push('Tierra!');
     }
     console.log(ataqueEnemigo);
-    combate();
+    iniciarPelea()
 }
 
+function iniciarPelea() {
+    if (ataqueJugador.length === 5) {
+        combate()
+    }
+}
 function seleccionarMascotaRival() {
     let numeroAleatorio = Math.floor(Math.random() * (max - min + 1) + min)
 
@@ -193,37 +200,29 @@ function seleccionarMascotaRival() {
     secuenciaAtaque()
 }
 
-function ataqueEnemigoAleatorio() {
-    let numeroAleatorio = Math.floor(Math.random() * (max - min + 1) + min)
-    if (numeroAleatorio === 1) {
-        ataqueEnemigo = "Fuego!"
-    } else if (numeroAleatorio === 2) {
-        ataqueEnemigo = "Agua!"
-    } else {
-        ataqueEnemigo = "Tierra!"
-    }
-
-    combate()
-}
-
 function combate() {
     
-    if (ataqueJugador == ataqueEnemigo) {
-        resultado = "Vaya... Ha sido un empate!"
-    } else if ((ataqueJugador == "Fuego!" && ataqueEnemigo == "Tierra!") || (ataqueJugador == "Agua!" && ataqueEnemigo == "Fuego!") || (ataqueJugador == "Tierra!" && ataqueEnemigo == "Agua!") ) {
-        vidasEnemigo--
-        spanVidas.innerHTML = vidasMascota
-        spanVidasRival.innerHTML = vidasEnemigo
-        resultado = "Que buena suerte! Haz ganado!"
-    } else {
-        vidasMascota--
-        spanVidas.innerHTML = vidasMascota
-        spanVidasRival.innerHTML = vidasEnemigo
-        resultado = "Será para la próxima... Haz perdido"
+    for (let i = 0; i < ataqueJugador.length; i++) {
+        if (ataqueJugador[i] === ataqueEnemigo[i]) {
+            indexRivales(i) 
+            resultado = "Vaya... Ha sido un empate!"
+        } else if ((ataqueJugador[i] === "Fuego!" && ataqueEnemigo[i] === "Tierra!") || (ataqueJugador[i] === "Agua!" && ataqueEnemigo[i] === "Fuego!") || (ataqueJugador[i] === "Tierra!" && ataqueEnemigo[i] === "Agua!")) {
+            indexRivales(i) 
+            resultado = "Que buena suerte! Haz ganado!"
+        } else {
+            indexRivales(i)
+            resultado = "Será para la próxima... Haz perdido"
+        }
+        
     }
-
+    
     crearMensaje()
     revisarVidas()
+}
+
+function indexRivales(index) {
+    indexJugador = ataqueJugador[index]
+    indexEnemigo = ataqueEnemigo[index]
 }
 
 function revisarVidas() {
@@ -237,9 +236,9 @@ function revisarVidas() {
 function crearMensaje() {
     let parrafo = document.createElement("p")
     let parrafoDos = document.createElement("p")
-    parrafo.innerHTML = ataqueJugador
+    parrafo.innerHTML = indexJugador
     ataqueMascota.appendChild(parrafo)
-    parrafoDos.innerHTML = ataqueEnemigo
+    parrafoDos.innerHTML = indexEnemigo
     ataqueMascotaRival.appendChild(parrafoDos)
     mensajes.innerHTML = resultado
 }
