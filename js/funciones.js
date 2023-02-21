@@ -206,17 +206,20 @@ function combate() {
         if (ataqueJugador[i] === ataqueEnemigo[i]) {
             indexRivales(i) 
             resultado = "Vaya... Ha sido un empate!"
+            crearMensaje()
         } else if ((ataqueJugador[i] === "Fuego!" && ataqueEnemigo[i] === "Tierra!") || (ataqueJugador[i] === "Agua!" && ataqueEnemigo[i] === "Fuego!") || (ataqueJugador[i] === "Tierra!" && ataqueEnemigo[i] === "Agua!")) {
             indexRivales(i) 
             resultado = "Que buena suerte! Haz ganado!"
+            crearMensaje()
         } else {
             indexRivales(i)
             resultado = "Será para la próxima... Haz perdido"
+            crearMensaje()
         }
         
     }
-    
-    crearMensaje()
+
+    // crearMensaje()
     revisarVidas()
 }
 
