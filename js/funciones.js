@@ -156,14 +156,17 @@ function secuenciaAtaque() {
                 ataqueJugador.push("Fuego!")
                 console.log(ataqueJugador)
                 boton.style.background = "#112f58"
+                boton.disabled = true
             } else if (e.target.innerText == "💧") {
                 ataqueJugador.push("Agua!")
                 console.log(ataqueJugador)
                 boton.style.background = "#112f58"
+                boton.disabled = true
             } else {
                 ataqueJugador.push("Tierra!")
                 console.log(ataqueJugador)
                 boton.style.background = "#112f58"
+                boton.disabled = true
             }
 
             ataqueAleatorioEnemigo()
@@ -256,10 +259,6 @@ function crearMensaje() {
 
 function crearMensajeFinal(mensaje) {
     mensajes.innerHTML = mensaje
-
-    botonFuego.disabled = true
-    botonAgua.disabled = true
-    botonTierra.disabled = true
     botonReinicio.style.display = "block"
 }
 
