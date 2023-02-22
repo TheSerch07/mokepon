@@ -141,7 +141,7 @@ input:checked + label {
     font-size: 20px;
     font-family: 'Fredoka One', cursive;
     background-color: rgb(255, 104, 104);
-    width: 200px;
+    width: 80px;
     height: 50px;
     transition: .5s
 }
@@ -154,7 +154,7 @@ input:checked + label {
     font-size: 20px;
     font-family: 'Fredoka One', cursive;
     background-color: rgb(104, 237, 255);
-    width: 200px;
+    width: 80px;
     height: 50px;
     transition: .5s
 }
@@ -168,7 +168,7 @@ input:checked + label {
     font-size: 20px;
     font-family: 'Fredoka One', cursive;
     background-color: rgb(104, 255, 124);
-    width: 200px;
+    width: 80px;
     height: 50px;
     transition: .5s
 }
