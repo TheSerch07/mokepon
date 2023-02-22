@@ -32,6 +32,8 @@ let ataqueJugador = []
 let ataqueEnemigo = []
 let resultado
 let ataquesMokepon
+let victorias = 0
+let derrotas = 0
 let vidasMascota = 3
 let vidasEnemigo = 3
 
@@ -210,10 +212,14 @@ function combate() {
         } else if ((ataqueJugador[i] === "Fuego!" && ataqueEnemigo[i] === "Tierra!") || (ataqueJugador[i] === "Agua!" && ataqueEnemigo[i] === "Fuego!") || (ataqueJugador[i] === "Tierra!" && ataqueEnemigo[i] === "Agua!")) {
             indexRivales(i) 
             resultado = "Que buena suerte! Haz ganado!"
+            victorias++
+            spanVidas.innerHTML = victorias
             crearMensaje()
         } else {
             indexRivales(i)
             resultado = "Será para la próxima... Haz perdido"
+            derrotas++
+            spanVidasRival.innerHTML = derrotas
             crearMensaje()
         }
         
@@ -229,9 +235,11 @@ function indexRivales(index) {
 }
 
 function revisarVidas() {
-    if (vidasEnemigo == 0) {
+    if (victorias === derrotas) {
+        crearMensajeFinal("Ha sido un empate!")
+    } else if (victorias > derrotas) {
         crearMensajeFinal("Genial! Haz ganado")
-    } else if (vidasMascota == 0) {
+    } else {
         crearMensajeFinal("Que mal, Haz perdido!")
     }
 }
