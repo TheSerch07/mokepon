@@ -11,6 +11,8 @@ const ataqueMascota = document.getElementById("ataque-mascota")
 const ataqueMascotaRival = document.getElementById("ataque-mascota-rival")
 const contenedorCartas = document.getElementById("contenedor-cartas")
 const contenedorAtaques = document.getElementById("contenedor-botones-ataque")
+const sectionVerMapa = document.getElementById("ver-mapa")
+const mapa = document.getElementById("mapa")
 
 const min = 0
 const max = 2
@@ -99,6 +101,7 @@ function iniciarJuego() {
     botonReinicio.addEventListener("click", reinicioVideojuego)
     seccionAtaque.style.display = "none"
     botonReinicio.style.display = "none"
+    sectionVerMapa.style.display = "none"
 }
 
 function seleccionarMascota() {
@@ -200,7 +203,8 @@ function seleccionarMascotaRival() {
     
     spanVidas.innerHTML = vidasMascota
     spanVidasRival.innerHTML = vidasEnemigo
-    seccionAtaque.style.display = "flex"
+    // seccionAtaque.style.display = "flex"
+    sectionVerMapa.style.display = "flex"
     seccionMascotas.style.display = "none"
     secuenciaAtaque()
 }
