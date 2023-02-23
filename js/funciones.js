@@ -38,6 +38,7 @@ let victorias = 0
 let derrotas = 0
 let vidasMascota = 3
 let vidasEnemigo = 3
+let lienzo = mapa.getContext("2d")
 
 class Mokepon {
     constructor(nombre, imagen, vidas) {
@@ -206,6 +207,11 @@ function seleccionarMascotaRival() {
     // seccionAtaque.style.display = "flex"
     sectionVerMapa.style.display = "flex"
     seccionMascotas.style.display = "none"
+    
+    let imagenCapipepo = new Image()
+    imagenCapipepo.src = capipepo.imagen
+
+    lienzo.drawImage(imagenCapipepo, 20, 40, 100, 100)
     secuenciaAtaque()
 }
 
