@@ -46,12 +46,12 @@ class Mokepon {
         this.imagen = imagen
         this.vidas = vidas
         this.ataques = [] 
+        this.mapaFoto = new Image()
+        this.mapaFoto.src = imagen
         this.x = 20
         this.y = 80
         this.ancho = 80
-        this.alto = 0
-        this.mapaFoto = new Image()
-        this.mapaFoto.src = imagen
+        this.alto = 80
     }
 }
 
@@ -214,7 +214,7 @@ function seleccionarMascotaRival() {
     sectionVerMapa.style.display = "flex"
     seccionMascotas.style.display = "none"
     
-    pintarPersonaje()
+    // pintarPersonaje()
     secuenciaAtaque()
 }
 
@@ -280,8 +280,29 @@ function reinicioVideojuego() {
 }
 
 function pintarPersonaje() {
+    lienzo.clearRect(0, 0, mapa.clientWidth, mapa.height)
     lienzo.drawImage(capipepo.mapaFoto, capipepo.x, capipepo.y, capipepo.ancho, capipepo.alto)
     
+}
+
+function moverMokeponDerecha() {
+    capipepo.x = capipepo.x + 5
+    pintarPersonaje()
+}
+
+function moverMokeponArriba() {
+    capipepo.y = capipepo.y - 5
+    pintarPersonaje()
+}
+
+function moverMokeponIzquierda() {
+    capipepo.x = capipepo.x - 5
+    pintarPersonaje()
+}
+
+function moverMokeponAbajo() {
+    capipepo.y = capipepo.y + 5
+    pintarPersonaje()
 }
 
 window.addEventListener("load", iniciarJuego)
