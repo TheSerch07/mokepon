@@ -306,4 +306,3 @@ function moverMokeponAbajo() {
 }
 
 window.addEventListener("load", iniciarJuego)
-
