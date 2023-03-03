@@ -218,7 +218,11 @@ function seleccionarMascotaRival() {
     seccionMascotas.style.display = "none"
     
     intervalo = setInterval(pintarPersonaje, 50)
+
+    window.addEventListener("keydown", presionTecla)
+    window.addEventListener("keyup", detenerMovimiento)
     // pintarPersonaje()
+
     secuenciaAtaque()
 }
 
@@ -314,6 +318,23 @@ function moverMokeponAbajo() {
 function detenerMovimiento() {
     capipepo.velocidadX = 0
     capipepo.velocidadY = 0
+}
+
+function presionTecla(e) {
+    switch (e.key) {
+        case "ArrowUp": 
+            moverMokeponArriba()
+            break;
+        case "ArrowDown":
+            moverMokeponAbajo()
+            break;
+        case "ArrowLeft": 
+            moverMokeponIzquierda()
+        case "ArrowRight":
+            moverMokeponDerecha()
+        default:
+            break
+    }
 }
 
 window.addEventListener("load", iniciarJuego)
