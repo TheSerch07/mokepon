@@ -217,10 +217,8 @@ function seleccionarMascotaRival() {
     sectionVerMapa.style.display = "flex"
     seccionMascotas.style.display = "none"
     
-    intervalo = setInterval(pintarPersonaje, 50)
 
-    window.addEventListener("keydown", presionTecla)
-    window.addEventListener("keyup", detenerMovimiento)
+    iniciarMapa()
     // pintarPersonaje()
 
     secuenciaAtaque()
@@ -330,11 +328,19 @@ function presionTecla(e) {
             break;
         case "ArrowLeft": 
             moverMokeponIzquierda()
+            break;
         case "ArrowRight":
             moverMokeponDerecha()
+            break;
         default:
-            break
+            break;
     }
+}
+function iniciarMapa() {
+    intervalo = setInterval(pintarPersonaje, 50)
+
+    window.addEventListener("keydown", presionTecla)
+    window.addEventListener("keyup", detenerMovimiento)
 }
 
 window.addEventListener("load", iniciarJuego)

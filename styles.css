@@ -64,13 +64,9 @@ input:checked + label {
     background-color: cadetblue;
     color: aliceblue;
     transition: 1.5s;
-    /* color: blueviolet; */
-    /* background-clip: content-box;
-    box-shadow: inset 0 0 0 0 cadetblue; */
 }
+
 .card-mascotas {
-    /* border: 5px; */
-    /* border: solid; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -78,10 +74,8 @@ input:checked + label {
     height: 180px;
     font-size: 20px;
     border: 5px solid salmon;
-    /* border-color: red; */
     background-color: aquamarine;
     margin: 5px;
-    /* padding: 10px; */
     border-radius: 20px;
     transition: 1.5s
 }
@@ -109,7 +103,6 @@ input:checked + label {
 #boton-mascota {
     border: 5px aquamarine solid;
     border-radius: 20px;
-    /* fon */
     font-size: 20px;
     font-family: 'Fredoka One', cursive;
     background-color: beige;
@@ -136,7 +129,6 @@ input:checked + label {
 #ataque-fuego {
     border: 5px rgb(216, 190, 190) solid;
     border-radius: 20px;
-    /* fon */
     color: aliceblue;
     font-size: 20px;
     font-family: 'Fredoka One', cursive;
@@ -163,7 +155,6 @@ input:checked + label {
 #ataque-tierra {
     border: 5px rgb(190, 216, 124) solid;
     border-radius: 20px;
-    /* fon */
     color: aliceblue;
     font-size: 20px;
     font-family: 'Fredoka One', cursive;
@@ -213,7 +204,6 @@ input:checked + label {
 #reiniciar {
     border: 5px #7fffd400 solid;
     border-radius: 20px;
-    /* fon */
     color: aliceblue;
     font-size: 15px;
     font-family: 'Fredoka One', cursive;
@@ -265,6 +255,5 @@ input:checked + label {
 
     .h1 {
         text-align: justify;
-        /* justify-content: center; */
     }
 }
