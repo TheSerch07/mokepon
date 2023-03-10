@@ -89,6 +89,9 @@ ratigueya.ataques.push(
 mokepones.push(hipodoge, capipepo, ratigueya)
 
 function iniciarJuego() {
+    mapa.width = 1080
+    mapa.height = 720
+
     console.log(mokepones, "Los mokepones")
     mokepones.forEach((mokepon) => {
         mokeponesPorMostrar = `
