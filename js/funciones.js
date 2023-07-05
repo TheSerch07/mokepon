@@ -40,6 +40,8 @@ let vidasMascota = 3
 let vidasEnemigo = 3
 let lienzo = mapa.getContext("2d")
 let intervalo
+let mapaBackground = new Image()
+mapaBackground.src = "./"
 
 class Mokepon {
     constructor(nombre, imagen, vidas) {
