@@ -22,6 +22,7 @@ let botonTierra
 let botonAgua 
 let botonFuego
 let mascotaJugador 
+let mascotaJugadorObjeto 
 let indexJugador
 let indexEnemigo
 let input1 = document.getElementById("hipodoge")
@@ -53,8 +54,8 @@ class Mokepon {
         this.mapaFoto.src = imagen
         this.x = 20
         this.y = 80
-        this.ancho = 80
-        this.alto = 80
+        this.ancho = 150
+        this.alto = 150
         this.velocidadY = 0
         this.velocidadX = 0
     }
@@ -288,8 +289,10 @@ function reinicioVideojuego() {
 }
 
 function pintarCanva() {
-    capipepo.x = capipepo.x + capipepo.velocidadX
-    capipepo.y = capipepo.y + capipepo.velocidadY
+    const avr = obtenerObjetoMascota()
+    console.log(avr)
+    mascotaJugadorObjeto.x = mascotaJugadorObjeto.x + mascotaJugadorObjeto.velocidadX
+    mascotaJugadorObjeto.y = mascotaJugadorObjeto.y + mascotaJugadorObjeto.velocidadY
     lienzo.clearRect(0, 0, mapa.clientWidth, mapa.height)
     lienzo.drawImage(
         mapaBackground,
@@ -299,34 +302,34 @@ function pintarCanva() {
         mapa.height
     )
     lienzo.drawImage(
-        capipepo.mapaFoto, 
-        capipepo.x, 
-        capipepo.y, 
-        capipepo.ancho, 
-        capipepo.alto
+        mascotaJugadorObjeto.mapaFoto, 
+        mascotaJugadorObjeto.x, 
+        mascotaJugadorObjeto.y, 
+        mascotaJugadorObjeto.ancho, 
+        mascotaJugadorObjeto.alto
     )
     
 }
 
 function moverMokeponDerecha() {
-    capipepo.velocidadX = 5
+    mascotaJugadorObjeto.velocidadX = 5
 }
 
 function moverMokeponArriba() {
-    capipepo.velocidadY = -5
+    mascotaJugadorObjeto.velocidadY = -5
 }
 
 function moverMokeponIzquierda() {
-    capipepo.velocidadX = -5
+    mascotaJugadorObjeto.velocidadX = -5
 }
 
 function moverMokeponAbajo() {
-    capipepo.velocidadY = 5
+    mascotaJugadorObjeto.velocidadY = 5
 }
 
 function detenerMovimiento() {
-    capipepo.velocidadX = 0
-    capipepo.velocidadY = 0
+    mascotaJugadorObjeto.velocidadX = 0
+    mascotaJugadorObjeto.velocidadY = 0
 }
 
 function presionTecla(e) {
@@ -347,7 +350,17 @@ function presionTecla(e) {
             break;
     }
 }
+
+function obtenerObjetoMascota() {
+    for (let i = 0 ; i < mokepones.length ; i++) {
+        if (mascotaJugador == mokepones[i].nombre) {
+            return mokepones[i]
+        }
+    }
+}
+
 function iniciarMapa() {
+    mascotaJugadorObjeto = obtenerObjetoMascota()
     intervalo = setInterval(pintarCanva, 50)
 
     window.addEventListener("keydown", presionTecla)
