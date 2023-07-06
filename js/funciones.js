@@ -45,13 +45,13 @@ let mapaBackground = new Image()
 mapaBackground.src = "./assets/mokemap.png"
 
 class Mokepon {
-    constructor(nombre, imagen, vidas) {
+    constructor(nombre, imagen, vidas, mapaFoto, x, y) {
         this.nombre = nombre
         this.imagen = imagen
         this.vidas = vidas
         this.ataques = [] 
         this.mapaFoto = new Image()
-        this.mapaFoto.src = imagen
+        this.mapaFoto.src = mapaFoto
         this.x = 20
         this.y = 80
         this.ancho = 150
