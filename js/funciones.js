@@ -41,7 +41,7 @@ let vidasEnemigo = 3
 let lienzo = mapa.getContext("2d")
 let intervalo
 let mapaBackground = new Image()
-mapaBackground.src = "./"
+mapaBackground.src = "./assets/mokemap.png"
 
 class Mokepon {
     constructor(nombre, imagen, vidas) {
@@ -91,8 +91,8 @@ ratigueya.ataques.push(
 mokepones.push(hipodoge, capipepo, ratigueya)
 
 function iniciarJuego() {
-    mapa.width = 1080
-    mapa.height = 720
+    mapa.width = 1060
+    mapa.height = 700
 
     console.log(mokepones, "Los mokepones")
     mokepones.forEach((mokepon) => {
@@ -222,10 +222,7 @@ function seleccionarMascotaRival() {
     sectionVerMapa.style.display = "flex"
     seccionMascotas.style.display = "none"
     
-
     iniciarMapa()
-    // pintarPersonaje()
-
     secuenciaAtaque()
 }
 
@@ -290,32 +287,41 @@ function reinicioVideojuego() {
     location.reload()
 }
 
-function pintarPersonaje() {
+function pintarCanva() {
     capipepo.x = capipepo.x + capipepo.velocidadX
     capipepo.y = capipepo.y + capipepo.velocidadY
     lienzo.clearRect(0, 0, mapa.clientWidth, mapa.height)
-    lienzo.drawImage(capipepo.mapaFoto, capipepo.x, capipepo.y, capipepo.ancho, capipepo.alto)
+    lienzo.drawImage(
+        mapaBackground,
+        0,
+        0,
+        mapa.width,
+        mapa.height
+    )
+    lienzo.drawImage(
+        capipepo.mapaFoto, 
+        capipepo.x, 
+        capipepo.y, 
+        capipepo.ancho, 
+        capipepo.alto
+    )
     
 }
 
 function moverMokeponDerecha() {
     capipepo.velocidadX = 5
-    // pintarPersonaje()
 }
 
 function moverMokeponArriba() {
     capipepo.velocidadY = -5
-    // pintarPersonaje()
 }
 
 function moverMokeponIzquierda() {
     capipepo.velocidadX = -5
-    // pintarPersonaje()
 }
 
 function moverMokeponAbajo() {
     capipepo.velocidadY = 5
-    // pintarPersonaje()
 }
 
 function detenerMovimiento() {
@@ -342,7 +348,7 @@ function presionTecla(e) {
     }
 }
 function iniciarMapa() {
-    intervalo = setInterval(pintarPersonaje, 50)
+    intervalo = setInterval(pintarCanva, 50)
 
     window.addEventListener("keydown", presionTecla)
     window.addEventListener("keyup", detenerMovimiento)
