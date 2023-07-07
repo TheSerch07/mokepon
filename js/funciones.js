@@ -54,16 +54,29 @@ class Mokepon {
         this.mapaFoto.src = mapaFoto
         this.x = x
         this.y = y
-        this.ancho = 150
-        this.alto = 150
+        this.ancho = 100
+        this.alto = 100
         this.velocidadY = 0
         this.velocidadX = 0
+    }
+
+    pintar() {
+        lienzo.drawImage(
+            this.mapaFoto, 
+            this.x, 
+            this.y, 
+            this.ancho, 
+            this.alto
+        )
     }
 }
 
 let hipodoge = new Mokepon("Hipodoge", "./assets/mokepons_mokepon_hipodoge_attack.png", 5, "./assets/hipodoge.png")
 let capipepo = new Mokepon("Capipepo", "./assets/mokepons_mokepon_capipepo_attack.png", 5, "./assets/capipepo.png")
 let ratigueya = new Mokepon("Ratigueya", "./assets/mokepons_mokepon_ratigueya_attack.png", 5, "./assets/ratigueya.png")
+let hipodogeEnemigo = new Mokepon("Hipodoge", "./assets/mokepons_mokepon_hipodoge_attack.png", 5, "./assets/hipodoge.png", 200, 500)
+let capipepoEnemigo = new Mokepon("Capipepo", "./assets/mokepons_mokepon_capipepo_attack.png", 5, "./assets/capipepo.png", 500, 352)
+let ratigueyaEnemigo = new Mokepon("Ratigueya", "./assets/mokepons_mokepon_ratigueya_attack.png", 5, "./assets/ratigueya.png", 800, 280)
 
 hipodoge.ataques.push(
     {name: "💧", id: "ataque-agua"},
@@ -289,8 +302,6 @@ function reinicioVideojuego() {
 }
 
 function pintarCanva() {
-    const avr = obtenerObjetoMascota()
-    console.log(avr)
     mascotaJugadorObjeto.x = mascotaJugadorObjeto.x + mascotaJugadorObjeto.velocidadX
     mascotaJugadorObjeto.y = mascotaJugadorObjeto.y + mascotaJugadorObjeto.velocidadY
     lienzo.clearRect(0, 0, mapa.clientWidth, mapa.height)
@@ -301,14 +312,16 @@ function pintarCanva() {
         mapa.width,
         mapa.height
     )
-    lienzo.drawImage(
-        mascotaJugadorObjeto.mapaFoto, 
-        mascotaJugadorObjeto.x, 
-        mascotaJugadorObjeto.y, 
-        mascotaJugadorObjeto.ancho, 
-        mascotaJugadorObjeto.alto
-    )
-    
+    mascotaJugadorObjeto.pintar()
+    hipodogeEnemigo.pintar()
+    capipepoEnemigo.pintar()
+    ratigueyaEnemigo.pintar()
+
+    if (mascotaJugadorObjeto.velocidadX !== 0 || mascotaJugadorObjeto.velocidadY !== 0) {
+        revisarColision(hipodogeEnemigo)
+        revisarColision(ratigueyaEnemigo)
+        revisarColision(capipepoEnemigo)
+    }
 }
 
 function moverMokeponDerecha() {
@@ -357,6 +370,27 @@ function obtenerObjetoMascota() {
             return mokepones[i]
         }
     }
+}
+
+function revisarColision(enemigo) {
+    const arribaEnemigo = enemigo.y
+    const abajoEnemigo = enemigo.y + enemigo.alto
+    const derechaEnemigo = enemigo.x + enemigo.ancho
+    const izquierdaEnemigo = enemigo.x
+
+    const arribaMascota = mascotaJugadorObjeto.y 
+    const abajoMascota = mascotaJugadorObjeto.y + mascotaJugadorObjeto.alto
+    const derechaMascota = mascotaJugadorObjeto.x + mascotaJugadorObjeto.ancho
+    const izquierdaMascota = mascotaJugadorObjeto.x
+    if (abajoMascota < arribaEnemigo ||
+        arribaMascota > abajoEnemigo ||
+        derechaMascota < izquierdaEnemigo ||
+        izquierdaMascota > derechaEnemigo) 
+        {
+        return 
+    }
+    detenerMovimiento()
+    alert("Hay colisión! Pelea con " + enemigo.nombre)
 }
 
 function iniciarMapa() {
