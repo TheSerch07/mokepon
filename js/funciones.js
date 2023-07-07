@@ -393,6 +393,7 @@ function revisarColision(enemigo) {
     alert("Hay colisión! Pelea con " + enemigo.nombre)
 }
 
+
 function iniciarMapa() {
     mascotaJugadorObjeto = obtenerObjetoMascota()
     intervalo = setInterval(pintarCanva, 50)
