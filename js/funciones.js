@@ -45,15 +45,15 @@ let mapaBackground = new Image()
 mapaBackground.src = "./assets/mokemap.png"
 
 class Mokepon {
-    constructor(nombre, imagen, vidas, mapaFoto, x, y) {
+    constructor(nombre, imagen, vidas, mapaFoto, x = 10, y = 10) {
         this.nombre = nombre
         this.imagen = imagen
         this.vidas = vidas
         this.ataques = [] 
         this.mapaFoto = new Image()
         this.mapaFoto.src = mapaFoto
-        this.x = 20
-        this.y = 80
+        this.x = x
+        this.y = y
         this.ancho = 150
         this.alto = 150
         this.velocidadY = 0
@@ -61,9 +61,9 @@ class Mokepon {
     }
 }
 
-let hipodoge = new Mokepon("Hipodoge", "./assets/mokepons_mokepon_hipodoge_attack.png", 5)
-let capipepo = new Mokepon("Capipepo", "./assets/mokepons_mokepon_capipepo_attack.png", 5)
-let ratigueya = new Mokepon("Ratigueya", "./assets/mokepons_mokepon_ratigueya_attack.png", 5)
+let hipodoge = new Mokepon("Hipodoge", "./assets/mokepons_mokepon_hipodoge_attack.png", 5, "./assets/hipodoge.png")
+let capipepo = new Mokepon("Capipepo", "./assets/mokepons_mokepon_capipepo_attack.png", 5, "./assets/capipepo.png")
+let ratigueya = new Mokepon("Ratigueya", "./assets/mokepons_mokepon_ratigueya_attack.png", 5, "./assets/ratigueya.png")
 
 hipodoge.ataques.push(
     {name: "💧", id: "ataque-agua"},
