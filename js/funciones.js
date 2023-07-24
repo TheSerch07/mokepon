@@ -141,7 +141,7 @@ function seleccionarMascota() {
     } else if (input2.checked) {
         spanMascota.innerHTML = input2.id
         mascotaJugador = input2.id
-    } else if (input3.checked) {
+    } else if (input3.checked) { 
         spanMascota.innerHTML = input3.id
         mascotaJugador = input3.id
     } else {
@@ -390,9 +390,10 @@ function revisarColision(enemigo) {
         return 
     }
     detenerMovimiento()
-    alert("Hay colisión! Pelea con " + enemigo.nombre)
-}
 
+    contenedorAtaques.style.display = "flex"
+    // alert("Hay colisión! Pelea con " + enemigo.nombre)
+}
 
 function iniciarMapa() {
     mascotaJugadorObjeto = obtenerObjetoMascota()
