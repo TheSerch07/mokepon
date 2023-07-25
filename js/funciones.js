@@ -392,7 +392,7 @@ function revisarColision(enemigo) {
     detenerMovimiento()
 
     contenedorAtaques.style.display = "flex"
-    // alert("Hay colisión! Pelea con " + enemigo.nombre)
+    sectionVerMapa.style.display = "none"
 }
 
 function iniciarMapa() {
