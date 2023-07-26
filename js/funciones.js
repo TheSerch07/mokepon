@@ -390,8 +390,7 @@ function revisarColision(enemigo) {
         return 
     }
     detenerMovimiento()
-
-    contenedorAtaques.style.display = "flex"
+    seccionAtaque.style.display = "flex"
     sectionVerMapa.style.display = "none"
 }
 
