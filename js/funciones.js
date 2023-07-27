@@ -86,6 +86,14 @@ hipodoge.ataques.push(
     {name: "🌱", id: "ataque-tierra"}
 )
 
+hipodogeEnemigo.ataques.push(
+    {name: "💧", id: "ataque-agua"},
+    {name: "💧", id: "ataque-agua"},
+    {name: "💧", id: "ataque-agua"},
+    {name: "🔥", id: "ataque-fuego"},
+    {name: "🌱", id: "ataque-tierra"}
+)
+
 capipepo.ataques.push(
     {name: "🌱", id: "ataque-tierra"},
     {name: "🌱", id: "ataque-tierra"},
@@ -94,7 +102,23 @@ capipepo.ataques.push(
     {name: "💧", id: "ataque-agua"}
 )
 
+capipepoEnemigo.ataques.push(
+    {name: "🌱", id: "ataque-tierra"},
+    {name: "🌱", id: "ataque-tierra"},
+    {name: "🌱", id: "ataque-tierra"},
+    {name: "🔥", id: "ataque-fuego"},
+    {name: "💧", id: "ataque-agua"}
+)
+
 ratigueya.ataques.push(
+    {name: "🔥", id: "ataque-fuego"},
+    {name: "🔥", id: "ataque-fuego"},
+    {name: "🔥", id: "ataque-fuego"},
+    {name: "🌱", id: "ataque-tierra"},
+    {name: "💧", id: "ataque-agua"}
+)
+
+ratigueyaEnemigo.ataques.push(
     {name: "🔥", id: "ataque-fuego"},
     {name: "🔥", id: "ataque-fuego"},
     {name: "🔥", id: "ataque-fuego"},
@@ -134,7 +158,6 @@ function iniciarJuego() {
 }
 
 function seleccionarMascota() {
-    
     if (input1.checked) {
         spanMascota.innerHTML = input1.id
         mascotaJugador = input1.id
@@ -150,7 +173,9 @@ function seleccionarMascota() {
     }
     
     extraerAtaque(mascotaJugador)
-    seleccionarMascotaRival()
+    seccionMascotas.style.display = "none"
+    sectionVerMapa.style.display = "flex"
+    iniciarMapa()
 }
 
 function extraerAtaque(mascotaJugador) {
@@ -160,7 +185,7 @@ function extraerAtaque(mascotaJugador) {
             ataques = mokepones[i].ataques
         }
     }
-
+    console.log(ataques, "ataques")
     mostrarAtaques(ataques)
 }
 
@@ -220,23 +245,20 @@ function ataqueAleatorioEnemigo() {
 }
 
 function iniciarPelea() {
+    console.log(ataqueJugador.length, "el lengggg")
     if (ataqueJugador.length === 5) {
         combate()
     }
 }
-function seleccionarMascotaRival() {
-    let numeroAleatorio = Math.floor(Math.random() * (max - min + 1) + min)
+function seleccionarMascotaRival(enemigo) {
 
-    spanMascotaRival.innerHTML = mokepones[numeroAleatorio].nombre
-    ataqueMokeponesEnemigo = mokepones[numeroAleatorio].ataques
+    spanMascotaRival.innerHTML = enemigo.nombre
+    ataqueMokeponesEnemigo = enemigo.ataques
     
     spanVidas.innerHTML = vidasMascota
     spanVidasRival.innerHTML = vidasEnemigo
-    // seccionAtaque.style.display = "flex"
-    sectionVerMapa.style.display = "flex"
-    seccionMascotas.style.display = "none"
-    
-    iniciarMapa()
+    sectionVerMapa.style.display = "flex"  
+
     secuenciaAtaque()
 }
 
@@ -389,7 +411,10 @@ function revisarColision(enemigo) {
         {
         return 
     }
+    seleccionarMascotaRival(enemigo)
     detenerMovimiento()
+    clearInterval(intervalo)
+    console.log("holii");
     seccionAtaque.style.display = "flex"
     sectionVerMapa.style.display = "none"
 }
