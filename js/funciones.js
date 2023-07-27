@@ -13,6 +13,7 @@ const contenedorCartas = document.getElementById("contenedor-cartas")
 const contenedorAtaques = document.getElementById("contenedor-botones-ataque")
 const sectionVerMapa = document.getElementById("ver-mapa")
 const mapa = document.getElementById("mapa")
+const anchoMaximoMapa = 980
 
 const min = 0
 const max = 2
@@ -42,8 +43,20 @@ let vidasEnemigo = 3
 let lienzo = mapa.getContext("2d")
 let intervalo
 let mapaBackground = new Image()
+let alturaBuscada
+let anchoDelMapa = window.innerWidth - 20 
 mapaBackground.src = "./assets/mokemap.png"
 
+if (anchoDelMapa > anchoMaximoMapa) { 
+    anchoDelMapa = anchoMaximoMapa - 20
+}
+
+alturaBuscada = anchoDelMapa * 600 / 800
+
+mapa.width = anchoDelMapa
+mapa.height = alturaBuscada
+
+//Falta agregar posicion random de los mokepones!
 class Mokepon {
     constructor(nombre, imagen, vidas, mapaFoto, x = 10, y = 10) {
         this.nombre = nombre
@@ -52,10 +65,10 @@ class Mokepon {
         this.ataques = [] 
         this.mapaFoto = new Image()
         this.mapaFoto.src = mapaFoto
-        this.x = x
-        this.y = y
         this.ancho = 100
         this.alto = 100
+        this.x = x
+        this.y = y
         this.velocidadY = 0
         this.velocidadX = 0
     }
@@ -129,10 +142,7 @@ ratigueyaEnemigo.ataques.push(
 mokepones.push(hipodoge, capipepo, ratigueya)
 
 function iniciarJuego() {
-    mapa.width = 1060
-    mapa.height = 700
 
-    console.log(mokepones, "Los mokepones")
     mokepones.forEach((mokepon) => {
         mokeponesPorMostrar = `
         <div class="card-mascotas">
@@ -414,7 +424,6 @@ function revisarColision(enemigo) {
     seleccionarMascotaRival(enemigo)
     detenerMovimiento()
     clearInterval(intervalo)
-    console.log("holii");
     seccionAtaque.style.display = "flex"
     sectionVerMapa.style.display = "none"
 }
