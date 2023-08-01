@@ -437,4 +437,3 @@ function iniciarMapa() {
 }
 
 window.addEventListener("load", iniciarJuego)
-
