@@ -58,7 +58,7 @@ mapa.height = alturaBuscada
 
 //Falta agregar posicion random de los mokepones!
 class Mokepon {
-    constructor(nombre, imagen, vidas, mapaFoto, x = 10, y = 10) {
+    constructor(nombre, imagen, vidas, mapaFoto) {
         this.nombre = nombre
         this.imagen = imagen
         this.vidas = vidas
@@ -67,8 +67,8 @@ class Mokepon {
         this.mapaFoto.src = mapaFoto
         this.ancho = 100
         this.alto = 100
-        this.x = x
-        this.y = y
+        this.x = Math.floor(Math.random() * (mapa.width - this.ancho - 0 + 1) + 0)
+        this.y = Math.floor(Math.random() * (mapa.height - this.alto - 0 + 1) + 0)
         this.velocidadY = 0
         this.velocidadX = 0
     }
@@ -87,9 +87,9 @@ class Mokepon {
 let hipodoge = new Mokepon("Hipodoge", "./assets/mokepons_mokepon_hipodoge_attack.png", 5, "./assets/hipodoge.png")
 let capipepo = new Mokepon("Capipepo", "./assets/mokepons_mokepon_capipepo_attack.png", 5, "./assets/capipepo.png")
 let ratigueya = new Mokepon("Ratigueya", "./assets/mokepons_mokepon_ratigueya_attack.png", 5, "./assets/ratigueya.png")
-let hipodogeEnemigo = new Mokepon("Hipodoge", "./assets/mokepons_mokepon_hipodoge_attack.png", 5, "./assets/hipodoge.png", 200, 500)
-let capipepoEnemigo = new Mokepon("Capipepo", "./assets/mokepons_mokepon_capipepo_attack.png", 5, "./assets/capipepo.png", 500, 352)
-let ratigueyaEnemigo = new Mokepon("Ratigueya", "./assets/mokepons_mokepon_ratigueya_attack.png", 5, "./assets/ratigueya.png", 800, 280)
+let hipodogeEnemigo = new Mokepon("Hipodoge", "./assets/mokepons_mokepon_hipodoge_attack.png", 5, "./assets/hipodoge.png")
+let capipepoEnemigo = new Mokepon("Capipepo", "./assets/mokepons_mokepon_capipepo_attack.png", 5, "./assets/capipepo.png")
+let ratigueyaEnemigo = new Mokepon("Ratigueya", "./assets/mokepons_mokepon_ratigueya_attack.png", 5, "./assets/ratigueya.png")
 
 hipodoge.ataques.push(
     {name: "💧", id: "ataque-agua"},

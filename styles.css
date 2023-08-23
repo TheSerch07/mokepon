@@ -248,6 +248,20 @@ input:checked + label {
     border: 2px solid white;
 }
 
+#ver-mapa button{
+    /* flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+    border: 5px aquamarine solid;
+    border-radius: 20px;
+    font-size: 20px;
+    font-family: 'Fredoka One', cursive;
+    background-color: aquamarine;
+    width: 200px;
+    height: 50px;
+    transition: .5s
+}
+
 @media (max-width: 890px) {
     #contenedor-cartas {
         flex-direction: column;
