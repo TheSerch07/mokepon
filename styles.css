@@ -55,7 +55,6 @@ input:checked + label {
     /* box-sizing: border-box; */
     /* cursor: pointer; */
     display: flex;
-    /* flex-direction: column; */
     justify-content: center;
     align-items: center;
     border-radius: 15px;
