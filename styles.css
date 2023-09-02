@@ -149,7 +149,6 @@ input:checked + label {
     transition: .5s
 }
 
-
 #ataque-tierra {
     border: 5px rgb(190, 216, 124) solid;
     border-radius: 20px;
