@@ -140,7 +140,6 @@ input:checked + label {
 #ataque-agua {
     border: 5px rgb(190, 216, 216) solid;
     border-radius: 20px;
-    /* fon */
     color: aliceblue;
     font-size: 20px;
     font-family: 'Fredoka One', cursive;
