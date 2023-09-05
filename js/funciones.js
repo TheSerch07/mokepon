@@ -56,7 +56,6 @@ alturaBuscada = anchoDelMapa * 600 / 800
 mapa.width = anchoDelMapa
 mapa.height = alturaBuscada
 
-//Falta agregar posicion random de los mokepones!
 class Mokepon {
     constructor(nombre, imagen, vidas, mapaFoto) {
         this.nombre = nombre
