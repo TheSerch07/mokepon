@@ -293,7 +293,6 @@ function combate() {
         
     }
 
-    // crearMensaje()
     revisarVidas()
 }
 
