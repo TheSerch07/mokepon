@@ -272,7 +272,6 @@ function seleccionarMascotaRival(enemigo) {
 }
 
 function combate() {
-    
     for (let i = 0; i < ataqueJugador.length; i++) {
         if (ataqueJugador[i] === ataqueEnemigo[i]) {
             indexRivales(i) 
