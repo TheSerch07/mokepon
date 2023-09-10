@@ -260,7 +260,6 @@ function iniciarPelea() {
     }
 }
 function seleccionarMascotaRival(enemigo) {
-
     spanMascotaRival.innerHTML = enemigo.nombre
     ataqueMokeponesEnemigo = enemigo.ataques
     
