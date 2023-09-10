@@ -141,7 +141,6 @@ ratigueyaEnemigo.ataques.push(
 mokepones.push(hipodoge, capipepo, ratigueya)
 
 function iniciarJuego() {
-
     mokepones.forEach((mokepon) => {
         mokeponesPorMostrar = `
         <div class="card-mascotas">
