@@ -431,4 +431,4 @@ function iniciarMapa() {
     window.addEventListener("keyup", detenerMovimiento)
 }
 
-window.addEventListener("load", iniciarJuego)
+// window.addEventListener("load", iniciarJuego)
