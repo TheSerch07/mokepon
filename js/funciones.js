@@ -423,12 +423,12 @@ function revisarColision(enemigo) {
     sectionVerMapa.style.display = "none"
 }
 
-// function iniciarMapa() {
-//     mascotaJugadorObjeto = obtenerObjetoMascota()
-//     intervalo = setInterval(pintarCanva, 50)
+function iniciarMapa() {
+    mascotaJugadorObjeto = obtenerObjetoMascota()
+    intervalo = setInterval(pintarCanva, 50)
 
-//     window.addEventListener("keydown", presionTecla)
-//     window.addEventListener("keyup", detenerMovimiento)
-// }
+    window.addEventListener("keydown", presionTecla)
+    window.addEventListener("keyup", detenerMovimiento)
+}
 
 window.addEventListener("load", iniciarJuego)
