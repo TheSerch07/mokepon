@@ -23,6 +23,8 @@ app.get("/create", (req, res) => {
 
     console.log(jugadores);
 
+    res.setHeader('Access-Control-Allow-Origin', '*')
+
     res.send(`Jugador ${jugador.nombre} creado con éxito!`)
 })
 

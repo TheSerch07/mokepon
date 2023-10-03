@@ -163,6 +163,20 @@ function iniciarJuego() {
     seccionAtaque.style.display = "none"
     botonReinicio.style.display = "none"
     sectionVerMapa.style.display = "none"
+
+    unirseAlJuego()
+}
+
+function unirseAlJuego() {
+    fetch("http://localhost:4000/create?nombre=Juan&edad=20")
+        .then((res) => {
+            if (res.ok) {
+                res.text()
+                .then((data) => {
+                    console.log(data)
+                })
+            }
+        })
 }
 
 function seleccionarMascota() {
