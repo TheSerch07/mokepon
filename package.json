@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/TheSerch07/mokepon/issues"
   },
-  "homepage": "https://github.com/TheSerch07/mokepon#readme"
+  "homepage": "https://github.com/TheSerch07/mokepon#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
