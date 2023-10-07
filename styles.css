@@ -101,14 +101,17 @@ input:checked + label {
     border-radius: 20px;
     font-size: 20px;
     font-family: 'Fredoka One', cursive;
-    background-color: beige;
+    background-color: transparent;
     width: 200px;
     height: 50px;
     transition: .5s
 }
 
 #boton-mascota:hover {
-    background-color: #FEBE8C;
+    font-size: 21px;
+    border: 2px solid aquamarine;
+    height: 60px;
+    background-color: beige;
     cursor: pointer;
 }
 
@@ -132,6 +135,27 @@ input:checked + label {
     width: 80px;
     height: 50px;
     transition: .5s
+}
+
+#nombre {
+    display: block;
+    color: black;
+    font-size: 20px;
+    font-family: 'Fredoka One', cursive;
+    background-color: transparent;
+    width: 500px;
+    height: 50px;
+    padding-left: 20px;
+    border-radius: 15px;
+    border: 2px solid black;
+    transition: .5s
+}
+
+#div-nombre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 70px;
 }
 
 #ataque-agua {
