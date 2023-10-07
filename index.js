@@ -1,7 +1,10 @@
-const express = require("express")
+const express = require("express");
+const cors = require("cors");
 
 const port = 4000
 const app = express();
+
+app.use(cors());
 
 class Jugador {
     constructor(nombre, edad, id) {
