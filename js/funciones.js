@@ -12,8 +12,11 @@ const ataqueMascotaRival = document.getElementById("ataque-mascota-rival")
 const contenedorCartas = document.getElementById("contenedor-cartas")
 const contenedorAtaques = document.getElementById("contenedor-botones-ataque")
 const sectionVerMapa = document.getElementById("ver-mapa")
+const nombreJugador = document.getElementById("nombre")
 const mapa = document.getElementById("mapa")
 const anchoMaximoMapa = 980
+
+console.dir(nombreJugador, "nombreJugador")
 
 const min = 0
 const max = 2
@@ -182,6 +185,8 @@ function unirseAlJuego() {
 }
 
 function seleccionarMascota() {
+    console.dir(nombreJugador, "nombreJugador")
+    console.log(nombreJugador.value, "nombreJugador.value")
     if (input1.checked) {
         spanMascota.innerHTML = input1.id
         mascotaJugador = input1.id
