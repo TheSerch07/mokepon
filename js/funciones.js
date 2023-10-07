@@ -18,6 +18,7 @@ const anchoMaximoMapa = 980
 const min = 0
 const max = 2
 
+let jugadorId = null
 let botones = []
 let botonTierra 
 let botonAgua 
@@ -174,6 +175,7 @@ function unirseAlJuego() {
                 res.text()
                 .then((data) => {
                     console.log(data)
+                    jugadorId = data
                 })
             }
         })
