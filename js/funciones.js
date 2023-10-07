@@ -194,10 +194,23 @@ function seleccionarMascota() {
         return
     }
     
+    seleccionarMokepon(mascotaJugador)
     extraerAtaque(mascotaJugador)
     seccionMascotas.style.display = "none"
     sectionVerMapa.style.display = "flex"
     iniciarMapa()
+}
+
+function seleccionarMokepon(mascotaJugador) {
+    fetch(`http://localhost:4000/mokepon/${jugadorId}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            mokepon: mascotaJugador
+        })
+    })
 }
 
 function extraerAtaque(mascotaJugador) {
