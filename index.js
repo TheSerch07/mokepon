@@ -27,9 +27,14 @@ app.get("/create", (req, res) => {
 
     console.log(jugadores);
 
-    res.setHeader('Access-Control-Allow-Origin', '*')
-
     res.send(`Jugador ${jugador.nombre} creado con éxito!`)
+})
+
+app.post("/mokepon/:id", (req, res) => {
+    const { id } = req.params;
+    const { nombre, edad } = req.body;
+
+
 })
 
 app.listen(port, () => {
