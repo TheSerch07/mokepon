@@ -17,6 +17,7 @@ class Jugador {
 
 let jugadores = [];
 
+
 app.get("/create", (req, res) => {
     const { nombre, edad } = req.query;
 
