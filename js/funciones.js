@@ -187,6 +187,10 @@ function unirseAlJuego() {
 function seleccionarMascota() {
     console.dir(nombreJugador, "nombreJugador")
     console.log(nombreJugador.value, "nombreJugador.value")
+    if (nombreJugador.value === "") {
+        alert("Ingresa tu nombre!")
+        return
+    }
     if (input1.checked) {
         spanMascota.innerHTML = input1.id
         mascotaJugador = input1.id

@@ -18,11 +18,11 @@ class Jugador {
 let jugadores = [];
 
 app.get("/create", (req, res) => {
-    const { nombre, edad } = req.query;
+    const { nombre } = req.query;
 
     const id = jugadores.length + 1;
 
-    const jugador = new Jugador(nombre, edad, id);
+    const jugador = new Jugador(nombre, id);
     jugadores.push(jugador);
 
     console.log(jugadores);
@@ -32,7 +32,7 @@ app.get("/create", (req, res) => {
 
 app.post("/mokepon/:id", (req, res) => {
     const { id } = req.params;
-    const { nombre, edad } = req.body;
+    const { nombre } = req.body;
 
 
 })
