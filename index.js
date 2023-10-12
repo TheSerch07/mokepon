@@ -12,6 +12,16 @@ class Jugador {
         this.nombre = nombre;
         this.id = id;
     }
+
+    asignarMokepon(mokepon) {
+        this.mokepon = mokepon;
+    }
+}
+
+class Mokepon {
+    constructor(nombre) {
+        this.nombre = nombre;
+    }
 }
 
 let jugadores = [];
@@ -25,10 +35,12 @@ app.get("/create", (req, res) => {
 app.post("/mokepon/:id/:nombre", (req, res) => {
     const { id } = req.params;
     const { nombre } = req.params;
+    const { mokepon } = req.body;
     
+    const mokeponNuevo = new Mokepon(mokepon);
     const jugador = new Jugador(nombre, id);
+    jugador.asignarMokepon(mokeponNuevo);
     jugadores.push(jugador);
-    console.log(id, nombre);
     console.log(jugadores);
     res.end();
 })
