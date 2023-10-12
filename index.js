@@ -18,17 +18,16 @@ let jugadores = [];
 
 app.get("/create", (req, res) => {
     const id = jugadores.length + 1;
-
-    const jugador = new Jugador('paco', id);
-    jugadores.push(jugador);
-
+    
     res.send(id.toString());
 })
 
 app.post("/mokepon/:id/:nombre", (req, res) => {
     const { id } = req.params;
-    const nombre = req.params.name;
-
+    const { nombre } = req.params;
+    
+    const jugador = new Jugador(nombre, id);
+    jugadores.push(jugador);
     console.log(id, nombre);
     console.log(jugadores);
     res.end();
