@@ -8,9 +8,8 @@ app.use(express.json());
 app.use(cors());
 
 class Jugador {
-    constructor(nombre, edad, id) {
+    constructor(nombre, id) {
         this.nombre = nombre;
-        this.edad = edad;
         this.id = id;
     }
 }
@@ -18,23 +17,21 @@ class Jugador {
 let jugadores = [];
 
 app.get("/create", (req, res) => {
-    const { nombre } = req.query;
-
     const id = jugadores.length + 1;
 
-    const jugador = new Jugador(nombre, id);
+    const jugador = new Jugador('paco', id);
     jugadores.push(jugador);
 
-    console.log(jugadores);
-
-    res.send(`Jugador ${jugador.nombre} creado con éxito!`)
+    res.send(id.toString());
 })
 
-app.post("/mokepon/:id", (req, res) => {
+app.post("/mokepon/:id/:nombre", (req, res) => {
     const { id } = req.params;
-    const { nombre } = req.body;
+    const nombre = req.params.name;
 
-
+    console.log(id, nombre);
+    console.log(jugadores);
+    res.end();
 })
 
 app.listen(port, () => {

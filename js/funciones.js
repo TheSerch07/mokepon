@@ -172,7 +172,7 @@ function iniciarJuego() {
 }
 
 function unirseAlJuego() {
-    fetch("http://localhost:4000/create?nombre=Juan&edad=20")
+    fetch("http://localhost:4000/create")
         .then((res) => {
             if (res.ok) {
                 res.text()
@@ -185,8 +185,6 @@ function unirseAlJuego() {
 }
 
 function seleccionarMascota() {
-    console.dir(nombreJugador, "nombreJugador")
-    console.log(nombreJugador.value, "nombreJugador.value")
     if (nombreJugador.value === "") {
         alert("Ingresa tu nombre!")
         return
@@ -205,15 +203,17 @@ function seleccionarMascota() {
         return
     }
     
-    seleccionarMokepon(mascotaJugador)
+    seleccionarMokepon(mascotaJugador, nombreJugador.value)
     extraerAtaque(mascotaJugador)
     seccionMascotas.style.display = "none"
     sectionVerMapa.style.display = "flex"
     iniciarMapa()
 }
 
-function seleccionarMokepon(mascotaJugador) {
-    fetch(`http://localhost:4000/mokepon/${jugadorId}`, {
+function seleccionarMokepon(mascotaJugador, nombreJugador) {
+    console.log(jugadorId, "jugadorId")
+    console.log(nombreJugador, "nombreJugador")
+    fetch(`http://localhost:4000/mokepon/${jugadorId}/${nombreJugador}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
