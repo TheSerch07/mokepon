@@ -47,7 +47,6 @@ app.post("/mokepon/:id/:nombre", (req, res) => {
 
 app.post("/mokepon/:id/position", (req, res) => {
 
-    
 })
 
 app.listen(port, () => {
