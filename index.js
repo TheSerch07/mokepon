@@ -45,6 +45,11 @@ app.post("/mokepon/:id/:nombre", (req, res) => {
     res.end();
 })
 
+app.post("/mokepon/:id/position", (req, res) => {
+
+    
+})
+
 app.listen(port, () => {
     console.log(`Servidor corriendo en http://localhost:${port}`)
 })
