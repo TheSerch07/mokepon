@@ -54,7 +54,6 @@ app.post("/mokepon/:id/position", (req, res) => {
 
     console.log(jugadorIndex, "??")
     res.end()
-    
 })
 
 app.listen(port, () => {
