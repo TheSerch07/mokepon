@@ -46,6 +46,15 @@ app.post("/mokepon/:id/:nombre", (req, res) => {
 })
 
 app.post("/mokepon/:id/position", (req, res) => {
+    const { id } = req.params
+    const { x } = req.body 
+    const { y } = req.body
+
+    const jugadorIndex = jugadores.findIndex((jugador) => jugador.id === id)
+
+    console.log(jugadorIndex, "??")
+    res.end()
+    
 })
 
 app.listen(port, () => {
