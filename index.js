@@ -52,6 +52,7 @@ app.post("/mokepon/position/:id", (req, res) => {
 
     const jugadorIndex = jugadores.findIndex((jugador) => jugador.id === id)
     console.log(jugadorIndex, "??")
+    
     res.end()
 })
 
