@@ -48,6 +48,7 @@ app.post("/mokepon/:id/:nombre", (req, res) => {
 
 app.post("/mokepon/position/:id", (req, res) => {
     const { id } = req.params
+    
     const { x } = req.body 
     const { y } = req.body
 
