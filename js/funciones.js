@@ -172,6 +172,7 @@ function iniciarJuego() {
 }
 
 function unirseAlJuego() {
+
     fetch("http://localhost:4000/create")
         .then((res) => {
             if (res.ok) {
@@ -185,6 +186,7 @@ function unirseAlJuego() {
 }
 
 function seleccionarMascota() {
+    
     if (nombreJugador.value === "") {
         alert("Ingresa tu nombre!")
         return
