@@ -21,6 +21,7 @@ class Jugador {
 class Mokepon {
     constructor(nombre) {
         this.nombre = nombre;
+        this.type = []
     }
 }
 
